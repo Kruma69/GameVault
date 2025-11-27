@@ -17,3 +17,11 @@ Incluye navegación por pestañas, una pantalla para añadir juegos y componente
   - `AppDrawer`
 
 ---
+
+##  Ejecutar el proyecto
+
+```bash
+git clone https://github.com/tuusuario/gamevault.git
+cd gamevault
+flutter pub get
+flutter run

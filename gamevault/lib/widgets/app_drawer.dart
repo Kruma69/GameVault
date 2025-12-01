@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../screens/settings_screen.dart';
 
 class AppDrawer extends StatelessWidget {
   const AppDrawer({super.key});
@@ -26,21 +27,31 @@ class AppDrawer extends StatelessWidget {
               ],
             ),
           ),
+
           ListTile(
             leading: const Icon(Icons.home),
             title: const Text('Inicio'),
             onTap: () => Navigator.pop(context),
           ),
+
           ListTile(
             leading: const Icon(Icons.person),
             title: const Text('Perfil'),
             onTap: () => Navigator.pop(context),
           ),
+
           ListTile(
             leading: const Icon(Icons.settings),
             title: const Text('Ajustes'),
-            onTap: () => Navigator.pop(context),
+            onTap: () {
+              Navigator.pop(context);
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (_) => const SettingsScreen()),
+              );
+            },
           ),
+
           ListTile(
             leading: const Icon(Icons.info),
             title: const Text('Acerca de la app'),

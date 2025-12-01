@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../services/settings_service.dart';
 
 class AddGameScreen extends StatefulWidget {
   const AddGameScreen({super.key});
@@ -10,7 +11,8 @@ class AddGameScreen extends StatefulWidget {
 class _AddGameScreenState extends State<AddGameScreen> {
   final tituloController = TextEditingController();
 
-  String plataforma = 'PC';
+  // 🔄 PASO 5: usar plataforma guardada como valor inicial
+  String plataforma = SettingsService.instance.preferredPlatform;
 
   final Map<String, bool> generos = {
     'Acción': false,
@@ -39,8 +41,10 @@ class _AddGameScreenState extends State<AddGameScreen> {
                 border: OutlineInputBorder(),
               ),
             ),
+
             const SizedBox(height: 25),
 
+            // --- Plataforma ---
             const Text("Plataforma", style: TextStyle(fontSize: 16)),
             Column(
               children: [
@@ -73,6 +77,7 @@ class _AddGameScreenState extends State<AddGameScreen> {
 
             const SizedBox(height: 25),
 
+            // --- Géneros ---
             const Text("Géneros", style: TextStyle(fontSize: 16)),
             ...generos.keys.map(
               (g) => CheckboxListTile(
@@ -88,6 +93,7 @@ class _AddGameScreenState extends State<AddGameScreen> {
 
             const SizedBox(height: 25),
 
+            // --- Calificación ---
             const Text("Calificación (0 - 10)", style: TextStyle(fontSize: 16)),
             Slider(
               value: calificacion,
@@ -102,6 +108,7 @@ class _AddGameScreenState extends State<AddGameScreen> {
 
             const SizedBox(height: 25),
 
+            // --- Completado ---
             SwitchListTile(
               title: const Text("Juego completado"),
               value: completado,
